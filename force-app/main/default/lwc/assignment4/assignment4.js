@@ -1,5 +1,5 @@
 import { LightningElement, api, wire, track } from 'lwc';
-import getTasksList from '@salesforce/apex/ActivityLeadPage.getTasksList';
+import getTasks from '@salesforce/apex/ActivityLeadPage.getTasks';
 
 const columns = [
     { label: 'Task', fieldName: 'TaskSubtype'},
@@ -14,7 +14,7 @@ export default class Assignment4 extends LightningElement {
     @track data = [];
     @track columns = columns;
 
-    @wire(getTasksList, {})
+    @wire(getTasks, {})
     ApexResponse({ error, data }) {
         if (data) {
             this.data = data;
