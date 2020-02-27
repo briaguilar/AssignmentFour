@@ -1,25 +1,33 @@
 <template>
-    <lightning-card title="Activity Timeline">
+        
 
-        <!-- <lightning-layout class="tasksTable"> -->
+    <lightning-card title="Activity Timeline">
+        <!-- Not showing up in custom object -->
+        <div class="selectorDiv">
+            <label for="filterSelect" class="slds-form-element__label slds-no-flex"></label>
+            <select class="slds-select" name="filterSelect" onchange={filterChange}>
+                <option value="Tasks">Tasks</option>
+                <option value="Events">Events</option>
+                <option value="Emails">Emails</option>
+            </select>
+        </div>
+
+        
+
             <!-- Tasks data table  -->
             <lightning-datatable
                 key-field="id"
                 data={taskData}
                 columns={taskColumns}>
             </lightning-datatable>
-        <!-- </lightning-layout> -->
 
 
-        <!-- <lightning-layout class="eventsTable"> -->
             <!-- Events data table  -->
             <lightning-datatable
                 key-field="id"
                 data={eventData}
                 columns={eventColumns}>
             </lightning-datatable>
-        <!-- </lightning-layout> -->
-
 
 
         <!-- ListEmails data table -->

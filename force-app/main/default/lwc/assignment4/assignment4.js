@@ -15,25 +15,32 @@ const taskColumns = [
 
 
 const eventColumns = [
-    { label: 'Event', fieldName: 'EventSubtype' },
+    { label: 'Event', fieldName: 'WhoId' },
     { label: 'Assigned To', fieldName: 'OwnerId' },
     { label: 'Subject', fieldName: 'Subject' },
     { label: 'Description', fieldname: 'Description' },
-    { label: 'Name', fieldName: 'WhoId' },
     { label: 'Activity Date', fieldName: 'ActivityDate' }
 ];
 
 
 const listEmailColumns = [
+    { label: 'Email', fieldName: 'Subject' },
     { label: 'From', fieldName: 'FromName' },
-    { label: 'Subject', fieldName: 'Subject' },
-    { label: 'Date Received', fieldName: 'MessageDate' },
-    { label: 'Status', fieldName: 'Status' }
+    { label: 'Message', fieldName: 'TextBody' },
+    { label: 'Date', fieldName: 'MessageDate' },
+    { label: 'Last Opened', fieldName: 'LastOpenedDate' }
 ];
 
 
 
 export default class Assignment4 extends LightningElement {
+    filterChange(value) {
+        if (value === "Tasks") {
+            listEmailColumns.visible(false);
+            eventColumns.visible(false);
+        }
+    }
+
     @track eventData = [];
     @track eventColumns = eventColumns;
 
@@ -45,7 +52,6 @@ export default class Assignment4 extends LightningElement {
             this.error = error;
         }
     }
-
 
 
     @track taskData = [];
@@ -73,19 +79,4 @@ export default class Assignment4 extends LightningElement {
         }
     }
 
-
-    // This works but just for the template section
-    // tasks;
-    // error;
-
-    // @wire(getTasks)
-    // wiredTasks({ error, data }) {
-    //     if (data) {
-    //         this.tasks = data;
-    //         this.error = undefined;
-    //     } else if (error) {
-    //         this.error = error;
-    //         this.tasks = undefined;
-    //     }
-    // }
 }
