@@ -2,10 +2,10 @@
         
 
     <lightning-card title="Activity Timeline">
-        <!-- Not showing up in custom object -->
         <div class="selectorDiv">
             <label for="filterSelect" class="slds-form-element__label slds-no-flex"></label>
             <select class="slds-select" name="filterSelect" onchange={filterChange}>
+                <option value="">Choose a filter</option>
                 <option value="Tasks">Tasks</option>
                 <option value="Events">Events</option>
                 <option value="Emails">Emails</option>
@@ -18,7 +18,9 @@
             <lightning-datatable
                 key-field="id"
                 data={taskData}
-                columns={taskColumns}>
+                columns={taskColumns}
+                hide-checkbox-column="true"
+                >
             </lightning-datatable>
 
 
@@ -26,7 +28,9 @@
             <lightning-datatable
                 key-field="id"
                 data={eventData}
-                columns={eventColumns}>
+                columns={eventColumns}
+                hide-checkbox-column="true"
+                >
             </lightning-datatable>
 
 
@@ -34,9 +38,9 @@
             <lightning-datatable
                 key-field="id"
                 data={listEmailData}
-                columns={listEmailColumns}>
+                columns={listEmailColumns}
+                hide-checkbox-column="true"
+                >
             </lightning-datatable>
-
-
     </lightning-card>
 </template>

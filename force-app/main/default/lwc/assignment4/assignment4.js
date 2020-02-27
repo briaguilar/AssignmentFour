@@ -5,7 +5,7 @@ import getListEmails from '@salesforce/apex/ListEmails.getListEmails';
 
 
 
-const taskColumns = [
+let taskColumns = [
     { label: 'Task', fieldName: 'TaskSubtype' },
     { label: 'Assigned To', fieldName: 'OwnerId' },
     { label: 'Subject', fieldName: 'Subject' },
@@ -14,7 +14,7 @@ const taskColumns = [
 ];
 
 
-const eventColumns = [
+let eventColumns = [
     { label: 'Event', fieldName: 'WhoId' },
     { label: 'Assigned To', fieldName: 'OwnerId' },
     { label: 'Subject', fieldName: 'Subject' },
@@ -23,7 +23,7 @@ const eventColumns = [
 ];
 
 
-const listEmailColumns = [
+let listEmailColumns = [
     { label: 'Email', fieldName: 'Subject' },
     { label: 'From', fieldName: 'FromName' },
     { label: 'Message', fieldName: 'TextBody' },
@@ -34,13 +34,6 @@ const listEmailColumns = [
 
 
 export default class Assignment4 extends LightningElement {
-    filterChange(value) {
-        if (value === "Tasks") {
-            listEmailColumns.visible(false);
-            eventColumns.visible(false);
-        }
-    }
-
     @track eventData = [];
     @track eventColumns = eventColumns;
 
@@ -78,5 +71,20 @@ export default class Assignment4 extends LightningElement {
             this.error = error;
         }
     }
+
+
+    // Does not work vvvv
+
+    // filterChange(value) {
+    //     if (value === "Tasks") {
+    //         taskColumns.visible(true);
+    //         listEmailColumns.visible(false);
+            
+    //     } else if (value === "Events") {
+    //         taskColumns.visible(false);
+    //         eventColumns.visible(true);
+    //         listEmailColumns.visible(false);
+    //     }
+    // }
 
 }
