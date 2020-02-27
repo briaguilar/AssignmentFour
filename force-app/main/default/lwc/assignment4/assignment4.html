@@ -1,9 +1,34 @@
 <template>
-    <lightning-card height="600" title="Activity Timeline">
-        <lightning-datatable
-            key-field="id"
-            data={data}
-            columns={columns}>
-        </lightning-datatable>
+    <lightning-card title="Activity Timeline">
+
+        <!-- <lightning-layout class="tasksTable"> -->
+            <!-- Tasks data table  -->
+            <lightning-datatable
+                key-field="id"
+                data={taskData}
+                columns={taskColumns}>
+            </lightning-datatable>
+        <!-- </lightning-layout> -->
+
+
+        <!-- <lightning-layout class="eventsTable"> -->
+            <!-- Events data table  -->
+            <lightning-datatable
+                key-field="id"
+                data={eventData}
+                columns={eventColumns}>
+            </lightning-datatable>
+        <!-- </lightning-layout> -->
+
+
+
+        <!-- ListEmails data table -->
+            <lightning-datatable
+                key-field="id"
+                data={listEmailData}
+                columns={listEmailColumns}>
+            </lightning-datatable>
+
+
     </lightning-card>
 </template>
